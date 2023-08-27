@@ -61,7 +61,7 @@ def getFiles(metadata,date):
             f.close()
 
 def getLastDate(metadata):
-    files = glob.glob(os.path.join(metatdata['savedir'],'node_health,*.csv.gz'))
+    files = glob.glob(os.path.join(metadata['savepath'],'data','*.csv.gz'))
     dates = []
     for f in files:
         if datetime.datetime.strptime(f[-24:-14], "%Y-%m-%d").date() not in dates:
@@ -70,10 +70,10 @@ def getLastDate(metadata):
     return max(dates)
 
 def getLastFile(metadata):
-    files = glob.glob(os.path.join(metatdata['savedir'],'node_health,*.csv.gz'))
+    files = glob.glob(os.path.join(metadata['savepath'],'data','*.csv.gz'))
     dates = []
     for f in files:
-        dates.append(datetime.datetime.strptime(name[-24:-7],'%Y-%m-%d_%H%M%S'))
+        dates.append(datetime.datetime.strptime(f[-24:-7],'%Y-%m-%d_%H%M%S'))
     lastFile = max(dates)
     return lastFile
 
@@ -82,9 +82,10 @@ def updateFiles(metadata):
 
     lastFile = getLastFile(metadata)
     lastFile += datetime.timedelta(seconds=1)
-    lastFile.strftime('%Y-%m-%dT%H:%M:%S.000Z')
+    lastFile = lastFile.strftime('%Y-%m-%dT%H:%M:%S.000Z')
 
     getFiles(metadata,lastFile)
+    return lastFile
 
 #startdate = '2023-05-01'
 
