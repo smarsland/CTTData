@@ -3,7 +3,7 @@
 
 import requests, csv, gzip, os, glob, datetime
 
-metadata={
+metadata_wairio={
     'host' : 'https://api.internetofwildlife.com' ,
     'projectdir' : '/station/api/projects',
     'stationdir' : '/station/api/stations',
@@ -15,9 +15,23 @@ metadata={
     'stationid' : '6B9A01B19306',
     #'file_types' : ["data", "node-data", "gps", "log", "telemetry", "sensorgnome"],
     'file_types' : ["data", "node-data", "gps", "log"],
-    'savepath' : '/home/marslast/Downloads/CTT/',
+    'savepath' : '/home/marslast/Downloads/CTT/Wairio/',
 }
 
+metadata_zealandia={
+    'host' : 'https://api.internetofwildlife.com' ,
+    'projectdir' : '/station/api/projects',
+    'stationdir' : '/station/api/stations',
+    'filedir' : '/station/api/file-list',
+    'getfiledir' : '/station/api/download-file',
+    'token' : 'ec28800e77b3b2ce0993c51c2bf1a62b62e8ef1f369696a0a27ea98847f8b3c1',
+    'projectid' : 273,
+    'projectname' : 'Toutouwai in NZ',
+    'stationid' : 'V30B0154BA86',
+    #'file_types' : ["data", "node-data", "gps", "log", "telemetry", "sensorgnome"],
+    'file_types' : ["data", "node-data", "gps", "log"],
+    'savepath' : '/home/marslast/Downloads/CTT/Zealandia/',
+}
 # Remember that response 200 is success. Then you have to get the result using .json()
 
 # To get project id

@@ -61,11 +61,11 @@ def addData(gps,nodedata,data,gpslist,ndlist,dlist):
 
     if len(dlist)>0:
         if data is None:
-            data = pd.read_csv(dlist[0])
+            data = pd.read_csv(dlist[0],dtype={'TagId':str,'NodeId':str})
             dlist.pop(0)
 
         for f in dlist:
-            df = pd.read_csv(f)
+            df = pd.read_csv(f,dtype={'TagId':str,'NodeId':str})
             data = pd.concat([data,df],ignore_index=True)
 
     return gps, nodedata, data
